@@ -31,6 +31,7 @@ Everything always starts in the same way:
 This gives you a client instance that's immediately ready to work. You then chain some methods to
 specify what you want to get, and fetch with a callback. For example:
 
+```js
     var w3c = require("w3capi")
     ,   handler = function (err, data) {
             if (err) return console.error("[ERROR]", err);
@@ -49,6 +50,7 @@ specify what you want to get, and fetch with a callback. For example:
        .editors
        .fetch(handler)
     ;
+```
 
 If you are familiar with the W3C API you know that it supports paging. This library hides that fact
 and when it sees a paged list of results it *always* fetches the whole set. Typically that is a 
