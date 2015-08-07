@@ -90,7 +90,7 @@ function subSteps (obj, items) {
         obj.prototype[it] = function () {
             this.steps.push(it);
             this.type = "list";
-            this.linkKey = it;
+            this    .linkKey = it;
             return this;
         };
     });
@@ -105,6 +105,8 @@ function idStep (obj, name) {
         return ctx;
     };
 }
+
+
 
 // w3c.domains().fetch()
 exports.domains = rootList("domains");
@@ -121,6 +123,8 @@ subSteps(DomainCtx, ["activities", "groups", "services", "users"]);
 // w3c.domain(41481).services().fetch()
 // w3c.domain(41481).users().fetch()
 exports.domain = idStep(DomainCtx, "domains");
+
+
 
 // w3c.groups().fetch()
 exports.groups = rootList("groups");
@@ -141,4 +145,18 @@ GroupCtx.prototype.charter = idStep(null, "charters");
 // w3c.group(54381).charters().fetch()
 // w3c.group(46884).charter(89).fetch()
 exports.group = idStep(GroupCtx, "groups");
+
+
+
+// Service-specific Ctx
+function ServiceCtx (ctx) {
+    Ctx.call(this, ctx);
+}
+subSteps(ServiceCtx, ["groups"]);
+
+// w3c.services(2).fetch()
+// w3c.services(2).groups().fetch()
+exports.service = idStep(ServiceCtx, "services");
+
+
 
