@@ -38,6 +38,7 @@ Ctx.prototype.fetch = function (options, cb) {
     ,   request = makeRequest(url, embed)
     ,   type = this.type || "item"
     ,   key = this.linkKey
+    ,   embedKey = embed ? "_embedded" : "_links"
     ;
 
     // what we want is to make one first request
@@ -50,7 +51,7 @@ Ctx.prototype.fetch = function (options, cb) {
         // if what we were fetching was a single item, we're good
         if (type === "item") return cb(null, res.body);
         // if it's a list but it has only one page, we're good
-        if (body.pages == 1) return cb(null, arrayify(body._links[key]));
+        if (body.pages == 1) return cb(null, arrayify(body[embedKey][key]));
         // otherwise we're dealing with a list that may be paged
         var reqs = []
         ,   page = 1
@@ -65,12 +66,12 @@ Ctx.prototype.fetch = function (options, cb) {
                 req.end(function (err, res) {
                     if (err) return cb(err);
                     if (!res.ok) return cb(res.text);
-                    cb(null, arrayify(res.body._links[key]));
+                    cb(null, arrayify(res.body[embedKey][key]));
                 });
             }
         ,   function (err, allRes) {
                 if (err) return cb(err);
-                var allData = arrayify(body._links[key]);
+                var allData = arrayify(body[embedKey][key]);
                 allRes.forEach(function (res) { allData = allData.concat(res); });
                 cb(null, allData);
             }

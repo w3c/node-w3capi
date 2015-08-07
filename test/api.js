@@ -7,7 +7,16 @@ function listChecker (done, title) {
     return function (err, data) {
         expect(err).to.not.be.ok();
         expect(data).to.be.an("array");
-        if (title) expect(data.filter(function (it) { return it.title === title; })).to.be.ok();
+        if (title) expect(data.some(function (it) { return it.title === title; })).to.be.ok();
+        done();
+    };
+}
+
+function embedChecker (done, field, value) {
+    return function (err, data) {
+        expect(err).to.not.be.ok();
+        expect(data).to.be.an("array");
+        expect(data.some(function (it) { return it[field] === value; })).to.be.ok();
         done();
     };
 }
@@ -139,3 +148,17 @@ describe("Users", function () {
         w3c.user(dino).specifications().fetch(listChecker(done, "Scalable Vector Graphics (SVG) Full 1.2 Specification"));
     });
 });
+
+
+describe("Embeds", function () {
+    it("apply to domains", function (done) {
+        w3c.domains().fetch({ embed: true }, embedChecker(done, "name", "Management"));
+    });
+    it("apply to groups", function (done) {
+        w3c.groups().fetch({ embed: true }, embedChecker(done, "type", "community group"));
+    });
+    it("apply to specifications", function (done) {
+        w3c.specifications().fetch({ embed: true }, embedChecker(done, "shortname", "wbxml"));
+    });
+});
+
