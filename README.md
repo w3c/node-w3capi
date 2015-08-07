@@ -38,12 +38,12 @@ specify what you want to get, and fetch with a callback. For example:
         }
     ;
 
-        just list all the groups
+    // just list all the groups
     w3c.groups()
        .fetch(handler)
     ;
 
-        get the editors for a specific version of a specification
+    // get the editors for a specific version of a specification
     w3c.specification("SVG11")
        .version("20030114")
        .editors
