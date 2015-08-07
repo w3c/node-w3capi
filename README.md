@@ -26,30 +26,32 @@ API's documentation for that.
 
 Everything always starts in the same way:
 
-    var w3c = require("w3c");
+```js
+var w3c = require("w3c");
+```
 
 This gives you a client instance that's immediately ready to work. You then chain some methods to
 specify what you want to get, and fetch with a callback. For example:
 
 ```js
-    var w3c = require("w3capi")
-    ,   handler = function (err, data) {
-            if (err) return console.error("[ERROR]", err);
-            console.log(data);
-        }
-    ;
+var w3c = require("w3capi")
+,   handler = function (err, data) {
+        if (err) return console.error("[ERROR]", err);
+        console.log(data);
+    }
+;
 
-    // just list all the groups
-    w3c.groups()
-       .fetch(handler)
-    ;
+// just list all the groups
+w3c.groups()
+   .fetch(handler)
+;
 
-    // get the editors for a specific version of a specification
-    w3c.specification("SVG11")
-       .version("20030114")
-       .editors
-       .fetch(handler)
-    ;
+// get the editors for a specific version of a specification
+w3c.specification("SVG11")
+   .version("20030114")
+   .editors
+   .fetch(handler)
+;
 ```
 
 If you are familiar with the W3C API you know that it supports paging. This library hides that fact
@@ -68,12 +70,14 @@ The `cb` receives the typical `err` and `data` parameters.
 
 Usage summary:
 
-    w3c.specifications().fetch()
-    w3c.specification("SVG").fetch()
-    w3c.specification("SVG").versions().fetch()
-    w3c.specification("SVG").version("19991203").fetch()
-    w3c.specification("SVG").version("19991203").deliverers().fetch()
-    w3c.specification("SVG").version("19991203").editors().fetch()
+```js
+w3c.specifications().fetch()
+w3c.specification("SVG").fetch()
+w3c.specification("SVG").versions().fetch()
+w3c.specification("SVG").version("19991203").fetch()
+w3c.specification("SVG").version("19991203").deliverers().fetch()
+w3c.specification("SVG").version("19991203").editors().fetch()
+```
 
 You can list all specifications, or get a single one using its shortname. For a given specification,
 you can list its versions and for a given version its editors and deliverers (the groups who shipped
@@ -86,15 +90,17 @@ way in which they are implemented and so they are not exposed here.
 
 Usage summary:
 
-    w3c.groups().fetch()
-    w3c.group(54381).fetch()
-    w3c.group(54381).chairs().fetch()
-    w3c.group(54381).services().fetch()
-    w3c.group(54381).specifications().fetch()
-    w3c.group(54381).teamcontacts().fetch()
-    w3c.group(54381).users().fetch()
-    w3c.group(54381).charters().fetch()
-    w3c.group(46884).charter(89).fetch()
+```js
+w3c.groups().fetch()
+w3c.group(54381).fetch()
+w3c.group(54381).chairs().fetch()
+w3c.group(54381).services().fetch()
+w3c.group(54381).specifications().fetch()
+w3c.group(54381).teamcontacts().fetch()
+w3c.group(54381).users().fetch()
+w3c.group(54381).charters().fetch()
+w3c.group(46884).charter(89).fetch()
+```
 
 You can list all groups or get a specific one by its ID (this is the same ID used in IPP, if you're
 familiar with that — also the same used in ReSpec for the group). There are several sublists that
@@ -105,10 +111,12 @@ charter can be fetched given its ID (an opaque number).
 
 Usage summary:
 
-    w3c.user("ivpki36ou94oo08osswccs80gcwogwk").fetch()
-    w3c.user("ivpki36ou94oo08osswccs80gcwogwk").affiliations().fetch()
-    w3c.user("ivpki36ou94oo08osswccs80gcwogwk").groups().fetch()
-    w3c.user("ivpki36ou94oo08osswccs80gcwogwk").specifications().fetch()
+```js
+w3c.user("ivpki36ou94oo08osswccs80gcwogwk").fetch()
+w3c.user("ivpki36ou94oo08osswccs80gcwogwk").affiliations().fetch()
+w3c.user("ivpki36ou94oo08osswccs80gcwogwk").groups().fetch()
+w3c.user("ivpki36ou94oo08osswccs80gcwogwk").specifications().fetch()
+```
 
 Users cannot be listed, and the ID used to fetch them is an opaque identifier (not the ID used 
 internally in the system so as to make it harder to slurp them all in). Various sublists can be
@@ -118,12 +126,14 @@ obtained.
 
 Usage summary:
 
-    w3c.domains().fetch()
-    w3c.domain(41481).fetch()
-    w3c.domain(41481).groups().fetch()
-    w3c.domain(41481).activities().fetch()
-    w3c.domain(41481).services().fetch()
-    w3c.domain(41481).users().fetch()
+```js
+w3c.domains().fetch()
+w3c.domain(41481).fetch()
+w3c.domain(41481).groups().fetch()
+w3c.domain(41481).activities().fetch()
+w3c.domain(41481).services().fetch()
+w3c.domain(41481).users().fetch()
+```
 
 Domains are an organisational structure internal to the W3C, of little interest to the outside world
 except to note that the Interaction Domain is the best.
@@ -132,8 +142,10 @@ except to note that the Interaction Domain is the best.
 
 Usage summary:
 
-    w3c.services(2).fetch()
-    w3c.services(2).groups().fetch()
+```js
+w3c.services(2).fetch()
+w3c.services(2).groups().fetch()
+```
 
 Services model tools that groups (or domains) can use, such as IRC, a bug tracker, a mailing list,
 etc. At this point in time, the services database isn't well-maintained but it could become more
