@@ -97,9 +97,9 @@ function subSteps (obj, items) {
 }
 
 // generates a step that takes an ID
-function idStep (obj, name) {
+function idStep (obj, name, parent) {
     return function (id) {
-        var ctx = obj ? new obj() : this;
+        var ctx = obj ? new obj(parent ? parent() : undefined) : this;
         ctx.steps.push(name);
         ctx.steps.push(id);
         return ctx;
@@ -160,3 +160,44 @@ exports.service = idStep(ServiceCtx, "services");
 
 
 
+
+// w3c.specifications().fetch()
+exports.specifications = rootList("specifications");
+
+// Specification-specific Ctx
+function SpecificationCtx (ctx) {
+    Ctx.call(this, ctx);
+}
+subSteps(SpecificationCtx, ["superseded", "supersedes", "versions"]);
+
+// Version-specific Ctx
+function VersionCtx (ctx) {
+    Ctx.call(this, ctx);
+}
+subSteps(VersionCtx, ["deliverers", "editors", "next", "previous"]);
+SpecificationCtx.prototype.version = idStep(VersionCtx, "version", function () { return this; });
+
+// w3c.specification("SVG").fetch()
+// w3c.specification("SVG").superseded().fetch()
+// w3c.specification("SVG").supersedes.fetch()
+// w3c.specification("SVG").versions().fetch()
+// w3c.specification("SVG").version("19991203").fetch()
+// w3c.specification("SVG").version("19991203").deliverers().fetch()
+// w3c.specification("SVG").version("19991203").editors().fetch()
+// w3c.specification("SVG").version("19991203").next().fetch()
+// w3c.specification("SVG").version("19991203").previous().fetch()
+exports.specification = idStep(SpecificationCtx, "specifications");
+
+
+
+// User-specific Ctx
+function UserCtx (ctx) {
+    Ctx.call(this, ctx);
+}
+subSteps(UserCtx, ["affiliations", "groups", "specifications"]);
+
+// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").fetch()
+// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").affiliations().fetch()
+// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").groups().fetch()
+// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").specifications().fetch()
+exports.user = idStep(UserCtx, "users");
