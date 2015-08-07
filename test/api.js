@@ -3,63 +3,82 @@ var expect = require("expect.js")
 ,   w3c = require("..")
 ;
 
+function listChecker (done, title) {
+    return function (err, data) {
+        expect(err).to.not.be.ok();
+        expect(data).to.be.an("array");
+        if (title) expect(data.filter(function (it) { return it.title === title; })).to.be.ok();
+        done();
+    };
+}
+
+function itemChecker (done, field, value) {
+    return function (err, data) {
+        expect(err).to.not.be.ok();
+        expect(data[field]).to.equal(value);
+        done();
+    };
+}
+
 describe("Domains", function () {
     it("can be listed", function (done) {
-        w3c.domains().fetch(function (err, data) {
-            expect(err).to.not.be.ok();
-            expect(data).to.be.an("array");
-            expect(data.filter(function (it) { return it.title === "Interaction"; })).to.be.ok();
-            done();
-        });
+        w3c.domains().fetch(listChecker(done, "Interaction"));
     });
     it("can be fetched", function (done) {
-        w3c.domain(41481).fetch(function (err, data) {
-            expect(err).to.not.be.ok();
-            expect(data.name).to.equal("Interaction");
-            done();
-        });
+        w3c.domain(41481).fetch(itemChecker(done, "name", "Interaction"));
     });
     it("have groups", function (done) {
-        w3c.domain(41481).groups().fetch(function (err, data) {
-            expect(err).to.not.be.ok();
-            expect(data).to.be.an("array");
-            expect(data.filter(function (it) { return it.title === "Internationalization Working Group"; })).to.be.ok();
-            done();
-        });
+        w3c.domain(41481).groups().fetch(listChecker(done, "Internationalization Working Group"));
     });
     it("have activities", function (done) {
-        w3c.domain(41481).activities().fetch(function (err, data) {
-            expect(err).to.not.be.ok();
-            expect(data).to.be.an("array");
-            expect(data.filter(function (it) { return it.title === "Style"; })).to.be.ok();
-            done();
-        });
+        w3c.domain(41481).activities().fetch(listChecker(done, "Style"));
     });
     it("have users", function (done) {
-        w3c.domain(41481).users().fetch(function (err, data) {
-            expect(err).to.not.be.ok();
-            expect(data).to.be.an("array");
-            expect(data.filter(function (it) { return it.title === "Philippe Le Hégaret"; })).to.be.ok();
-            done();
-        });
+        w3c.domain(41481).users().fetch(listChecker(done, "Philippe Le Hégaret"));
     });
 });
 
 
-// w3c.groups().fetch()
+describe("Groups", function () {
+    it("can be listed", function (done) {
+        w3c.groups().fetch(listChecker(done, "Cascading Style Sheets (CSS) Working Group"));
+    });
+    it("can be fetched", function (done) {
+        w3c.group(32061).fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
+    });
+    it("have chairs", function (done) {
+        // XXX this will change soon
+        w3c.group(32061).chairs().fetch(listChecker(done, "Daniel Glazman"));
+    });
+    it("have services", function (done) {
+        w3c.group(32061).services().fetch(listChecker(done, "Wiki"));
+    });
+    it("have specifications", function (done) {
+        w3c.group(32061).specifications().fetch(listChecker(done, "Selectors Level 3"));
+    });
+    it("have teamcontacts", function (done) {
+        w3c.group(32061).teamcontacts().fetch(listChecker(done, "Bert Bos"));
+    });
+    it("have users", function (done) {
+        w3c.group(32061).users().fetch(listChecker(done, "Tab Atkins Jr."));
+    });
+    it("have charters", function (done) {
+        w3c.group(32061).charters().fetch(listChecker(done));
+    });
+    it("have charters that can be fetched", function (done) {
+        w3c.group(32061).charter(102).fetch(itemChecker(done, "end", "1999-02-28"));
+    });
+});
 
-// w3c.group(54381).fetch()
-// w3c.group(54381).chairs().fetch()
-// w3c.group(54381).services().fetch()
-// w3c.group(54381).specifications().fetch()
-// w3c.group(54381).teamcontacts().fetch()
-// w3c.group(54381).users().fetch()
-// w3c.group(54381).charters().fetch()
-// w3c.group(46884).charter(89).fetch()
 
-
-// w3c.services(2).fetch()
-// w3c.services(2).groups().fetch()
+describe("Services", function () {
+    it("can be fetched", function (done) {
+        w3c.service(2).fetch(itemChecker(done, "type", "tracker"));
+    });
+    it("have groups", function (done) {
+        w3c.service(2).groups().fetch(listChecker(done, "Systems"));
+    });
+});
 
 
 // w3c.specifications().fetch()
