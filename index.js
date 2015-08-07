@@ -103,9 +103,9 @@ function subSteps (obj, items) {
 }
 
 // generates a step that takes an ID
-function idStep (obj, name, parent) {
+function idStep (obj, name, inherit) {
     return function (id) {
-        var ctx = obj ? new obj(parent ? parent() : undefined) : this;
+        var ctx = obj ? new obj(inherit ? this : undefined) : this;
         ctx.steps.push(name);
         ctx.steps.push(id);
         return ctx;
@@ -174,14 +174,22 @@ exports.specifications = rootList("specifications");
 function SpecificationCtx (ctx) {
     Ctx.call(this, ctx);
 }
-subSteps(SpecificationCtx, ["superseded", "supersedes", "versions"]);
+// XXX superseded/supersedes are currently broken in the API
+// I also suspect an annoying data model, as for next/previous below
+/*"superseded", "supersedes", */
+subSteps(SpecificationCtx, ["versions"]);
 
 // Version-specific Ctx
 function VersionCtx (ctx) {
     Ctx.call(this, ctx);
 }
-subSteps(VersionCtx, ["deliverers", "editors", "next", "previous"]);
-SpecificationCtx.prototype.version = idStep(VersionCtx, "version", function () { return this; });
+// XXX
+// next/previous suck because they're an item link but have an array field ("versions") that doesn't match the
+// the name ("previous"/"next"), so it's completely irregular compared to the rest
+// because of that they're not exposed
+/*, "next", "previous"*/
+subSteps(VersionCtx, ["deliverers", "editors"]);
+SpecificationCtx.prototype.version = idStep(VersionCtx, "versions", true);
 
 // w3c.specification("SVG").fetch()
 // w3c.specification("SVG").superseded().fetch()

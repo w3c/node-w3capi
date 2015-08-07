@@ -81,21 +81,61 @@ describe("Services", function () {
 });
 
 
-// w3c.specifications().fetch()
+describe("Specifications", function () {
+    it("can be listed", function (done) {
+        w3c.specifications().fetch(listChecker(done, "SVG Paths"));
+    });
+    it("can be fetched", function (done) {
+        w3c.specification("rex").fetch(itemChecker(done, "shortname", "rex"));
+    });
+    // see code for why we don't test these
+    // it("have superseded", function (done) {
+    //     // XXX don't know if list or item
+    //     w3c.specification("SVG").superseded().fetch(listChecker(done, "SVG11"));
+    // });
+    // it("have supersedes", function (done) {
+    //     // XXX don't know if list or item
+    //     w3c.specification("SVG11").supersedes().fetch(listChecker(done, "SVG"));
+    // });
+});
 
-// w3c.specification("SVG").fetch()
-// w3c.specification("SVG").superseded().fetch()
-// w3c.specification("SVG").supersedes.fetch()
-// w3c.specification("SVG").versions().fetch()
-// w3c.specification("SVG").version("19991203").fetch()
-// w3c.specification("SVG").version("19991203").deliverers().fetch()
-// w3c.specification("SVG").version("19991203").editors().fetch()
-// w3c.specification("SVG").version("19991203").next().fetch()
-// w3c.specification("SVG").version("19991203").previous().fetch()
 
 
-// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").fetch()
-// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").affiliations().fetch()
-// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").groups().fetch()
-// w3c.user("ivpki36ou94oo08osswccs80gcwogwk").specifications().fetch()
+describe("Specifications Version", function () {
+    it("can be listed", function (done) {
+        w3c.specification("SVG11").versions().fetch(listChecker(done, "Scalable Vector Graphics (SVG) 1.1 Specification"));
+    });
+    it("can be fetched", function (done) {
+        w3c.specification("SVG11").version("20030114").fetch(itemChecker(done, "date", "2003-01-14"));
+    });
+    it("have deliverers", function (done) {
+        w3c.specification("SVG11").version("20030114").deliverers().fetch(listChecker(done, "SVG Working Group"));
+    });
+    it("have editors", function (done) {
+        w3c.specification("SVG11").version("20030114").editors().fetch(listChecker(done, "Dean Jackson"));
+    });
+    // see code for why we don't test these
+    // it("have next", function (done) {
+    //     w3c.specification("SVG11").version("20030114").next().fetch(listChecker(done, "SVG Working Group"));
+    // });
+    // it("have previous", function (done) {
+    //     w3c.specification("SVG11").version("20030114").previous().fetch(itemChecker(done, "page", 1));
+    // });
+});
 
+
+describe("Users", function () {
+    var dino = "ivpki36ou94oo08osswccs80gcwogwk";
+    it("can be fetched", function (done) {
+        w3c.user(dino).fetch(itemChecker(done, "given", "Dean"));
+    });
+    it("have affiliations", function (done) {
+        w3c.user(dino).affiliations().fetch(listChecker(done));
+    });
+    it("have groups", function (done) {
+        w3c.user(dino).groups().fetch(listChecker(done, "Alumni"));
+    });
+    it("have specifications", function (done) {
+        w3c.user(dino).specifications().fetch(listChecker(done, "Scalable Vector Graphics (SVG) Full 1.2 Specification"));
+    });
+});
