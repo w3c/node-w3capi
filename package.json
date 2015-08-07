@@ -1,6 +1,6 @@
 {
   "name": "w3capi",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "repository": "https://github.com/darobin/w3capi.git",
   "dependencies": {
