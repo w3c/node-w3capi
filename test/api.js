@@ -98,14 +98,12 @@ describe("Specifications", function () {
         w3c.specification("rex").fetch(itemChecker(done, "shortname", "rex"));
     });
     // see code for why we don't test these
-    // it("have superseded", function (done) {
-    //     // XXX don't know if list or item
-    //     w3c.specification("SVG").superseded().fetch(listChecker(done, "SVG11"));
-    // });
-    // it("have supersedes", function (done) {
-    //     // XXX don't know if list or item
-    //     w3c.specification("SVG11").supersedes().fetch(listChecker(done, "SVG"));
-    // });
+    it("have superseded", function (done) {
+        w3c.specification("SVG").superseded().fetch(listChecker(done, "Scalable Vector Graphics (SVG) 1.1 (Second Edition)"));
+    });
+    it("have supersedes", function (done) {
+        w3c.specification("SVG11").supersedes().fetch(listChecker(done, "Scalable Vector Graphics (SVG) 1.0 Specification"));
+    });
 });
 
 

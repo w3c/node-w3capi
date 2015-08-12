@@ -77,11 +77,13 @@ w3c.specification("SVG").versions().fetch()
 w3c.specification("SVG").version("19991203").fetch()
 w3c.specification("SVG").version("19991203").deliverers().fetch()
 w3c.specification("SVG").version("19991203").editors().fetch()
+w3c.specification("SVG").superseded().fetch()
+w3c.specification("SVG11").supersedes().fetch()
 ```
 
 You can list all specifications, or get a single one using its shortname. For a given specification,
 you can list its versions and for a given version its editors and deliverers (the groups who shipped
-it).
+it). You can know which specification supersedes or was superseded by which other.
 
 In the W3C API, versions also have `next` and `previous` links but there is an open issue about the
 way in which they are implemented and so they are not exposed here.

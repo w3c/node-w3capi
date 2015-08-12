@@ -175,10 +175,7 @@ exports.specifications = rootList("specifications");
 function SpecificationCtx (ctx) {
     Ctx.call(this, ctx);
 }
-// XXX superseded/supersedes are currently broken in the API
-// I also suspect an annoying data model, as for next/previous below
-/*"superseded", "supersedes", */
-subSteps(SpecificationCtx, ["versions"]);
+subSteps(SpecificationCtx, ["superseded", "supersedes", "versions"]);
 
 // Version-specific Ctx
 function VersionCtx (ctx) {
