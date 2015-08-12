@@ -97,7 +97,6 @@ describe("Specifications", function () {
     it("can be fetched", function (done) {
         w3c.specification("rex").fetch(itemChecker(done, "shortname", "rex"));
     });
-    // see code for why we don't test these
     it("have superseded", function (done) {
         w3c.specification("SVG").superseded().fetch(listChecker(done, "Scalable Vector Graphics (SVG) 1.1 (Second Edition)"));
     });
@@ -121,13 +120,12 @@ describe("Specifications Version", function () {
     it("have editors", function (done) {
         w3c.specification("SVG11").version("20030114").editors().fetch(listChecker(done, "Dean Jackson"));
     });
-    // see code for why we don't test these
-    // it("have next", function (done) {
-    //     w3c.specification("SVG11").version("20030114").next().fetch(listChecker(done, "SVG Working Group"));
-    // });
-    // it("have previous", function (done) {
-    //     w3c.specification("SVG11").version("20030114").previous().fetch(itemChecker(done, "page", 1));
-    // });
+    it("have next", function (done) {
+        w3c.specification("CSS2").version("20070719").next().fetch(listChecker(done, "Candidate Recommendation"));
+    });
+    it("have previous", function (done) {
+        w3c.specification("CSS2").version("20090423").previous().fetch(listChecker(done, "Candidate Recommendation"));
+    });
 });
 
 

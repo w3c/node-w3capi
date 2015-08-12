@@ -181,12 +181,7 @@ subSteps(SpecificationCtx, ["superseded", "supersedes", "versions"]);
 function VersionCtx (ctx) {
     Ctx.call(this, ctx);
 }
-// XXX
-// next/previous suck because they're an item link but have an array field ("versions") that doesn't match the
-// the name ("previous"/"next"), so it's completely irregular compared to the rest
-// because of that they're not exposed
-/*, "next", "previous"*/
-subSteps(VersionCtx, ["deliverers", "editors"]);
+subSteps(VersionCtx, ["deliverers", "editors", "next", "previous"]);
 SpecificationCtx.prototype.version = idStep(VersionCtx, "versions", true);
 
 // w3c.specification("SVG").fetch()
