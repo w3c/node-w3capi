@@ -97,7 +97,7 @@ function subSteps (obj, items) {
         obj.prototype[it] = function () {
             this.steps.push(it);
             this.type = "list";
-            this    .linkKey = it;
+            this.linkKey = it;
             return this;
         };
     });
@@ -176,6 +176,11 @@ function SpecificationCtx (ctx) {
     Ctx.call(this, ctx);
 }
 subSteps(SpecificationCtx, ["superseded", "supersedes", "versions"]);
+SpecificationCtx.prototype.latest = function () {
+    this.steps.push("versions");
+    this.steps.push("latest");
+    return this;
+};
 
 // Version-specific Ctx
 function VersionCtx (ctx) {
@@ -186,7 +191,8 @@ SpecificationCtx.prototype.version = idStep(VersionCtx, "versions", true);
 
 // w3c.specification("SVG").fetch()
 // w3c.specification("SVG").superseded().fetch()
-// w3c.specification("SVG").supersedes.fetch()
+// w3c.specification("SVG").supersedes().fetch()
+// w3c.specification("SVG").latest().fetch()
 // w3c.specification("SVG").versions().fetch()
 // w3c.specification("SVG").version("19991203").fetch()
 // w3c.specification("SVG").version("19991203").deliverers().fetch()

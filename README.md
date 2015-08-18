@@ -79,6 +79,7 @@ w3c.specification("SVG").version("19991203").deliverers().fetch()
 w3c.specification("SVG").version("19991203").editors().fetch()
 w3c.specification("SVG").version("19991203").previous().fetch()
 w3c.specification("SVG").version("19991203").next().fetch()
+w3c.specification("SVG11").latest().fetch()
 w3c.specification("SVG").superseded().fetch()
 w3c.specification("SVG11").supersedes().fetch()
 ```
@@ -86,7 +87,8 @@ w3c.specification("SVG11").supersedes().fetch()
 You can list all specifications, or get a single one using its shortname. For a given specification,
 you can list its versions and for a given version its editors and deliverers (the groups who shipped
 it), as well as which versions were the previous or next. You can know which specification 
-supersedes or was superseded by which other.
+supersedes or was superseded by which other. You can use `latest()` to get the latest version 
+without having to list them.
 
 ### Groups
 

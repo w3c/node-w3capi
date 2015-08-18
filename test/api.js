@@ -103,6 +103,9 @@ describe("Specifications", function () {
     it("have supersedes", function (done) {
         w3c.specification("SVG11").supersedes().fetch(listChecker(done, "Scalable Vector Graphics (SVG) 1.0 Specification"));
     });
+    it("have latest", function (done) {
+        w3c.specification("SVG11").latest().fetch(itemChecker(done, "date", "2011-08-16"));
+    });
 });
 
 
