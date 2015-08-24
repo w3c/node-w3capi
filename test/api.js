@@ -8,11 +8,6 @@ if (!process.env.W3CAPIKEY) {
     process.exit(1);
 }
 w3c.apiKey = process.env.W3CAPIKEY;
-if (!process.env.W3CAPIORIGIN) {
-    console.error("No API origin has been set, make sure you defined the W3CAPIORIGIN environment variable.");
-    process.exit(1);
-}
-w3c.apiOrigin = process.env.W3CAPIORIGIN;
 
 function listChecker (done, title) {
     return function (err, data) {

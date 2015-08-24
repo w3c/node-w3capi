@@ -25,12 +25,9 @@ The API is only available if you have an API key. In order to obtain one, you ne
 your W3C account page.
 
 If you wish to run the tests, you need to set an environment variable named `W3CAPIKEY` to that 
-value, as well as an origin that matches the key, as in
+value, as in
 
-    W3CAPIKEY=deadb33f W3CAPIORIGIN="http://foo.bar" mocha
-
-The origin part is due to a bug with the W3C API key system that currently only works with CORS.
-Hopefully at some point that restriction will disappear.
+    W3CAPIKEY=deadb33f mocha
 
 ## API
 
@@ -42,10 +39,10 @@ Everything always starts in the same way:
 ```js
 var w3c = require("w3c");
 w3c.apiKey = "your-api-key";
-w3c.apiOrigin = "https://the-origin-that-matches/";
 ```
 
-As explained above the `apiOrigin` part is a bug in the W3C API; hopefully we can remove that soon.
+You *will* need an API key. Nothing will work without it. ***NOTE***: this library does not support
+keys that were created with a list of origins. You should generate a key with no list of domains.
 
 This gives you a client instance that's immediately ready to work. You then chain some methods to
 specify what you want to get, and fetch with a callback. For example:
