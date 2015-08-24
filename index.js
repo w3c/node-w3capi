@@ -7,13 +7,21 @@ var sua = require("superagent")
 // this is the base URL we use, which can be overridden
 exports.baseURL = "https://api-test.w3.org/";
 
+// this is the API key, you have to set it
+exports.apiKey = null;
+exports.apiOrigin = null;
+
 // slurping helper
 function makeRequest (url, embed, page) {
     var query = {};
     if (embed) query.embed = "true";
     if (page) query.page = page;
+    if (!exports.apiKey) throw new Error("No API key.");
+    if (!exports.apiOrigin) throw new Error("No API key origin, sadly required for now.");
+    query.apikey = exports.apiKey;
     return sua.get(url)
                 .accept("json")
+                .set("Origin", exports.apiOrigin)
                 .query(query)
     ;
 }
