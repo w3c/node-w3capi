@@ -145,14 +145,14 @@ exports.groups = rootList("groups");
 function GroupCtx (ctx) {
     Ctx.call(this, ctx);
 }
-subSteps(GroupCtx, ["chairs", "services", "specifications", "teamcontacts", "users", "charters"]);
+subSteps(GroupCtx, ["chairs", "services", "specifications", "team_contacts", "users", "charters"]);
 GroupCtx.prototype.charter = idStep(null, "charters");
 
 // w3c.group(54381).fetch()
 // w3c.group(54381).chairs().fetch()
 // w3c.group(54381).services().fetch()
 // w3c.group(54381).specifications().fetch()
-// w3c.group(54381).teamcontacts().fetch()
+// w3c.group(54381).team_contacts().fetch()
 // w3c.group(54381).users().fetch()
 // w3c.group(54381).charters().fetch()
 // w3c.group(46884).charter(89).fetch()
