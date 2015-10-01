@@ -45,9 +45,6 @@ describe("Domains", function () {
     it("have groups", function (done) {
         w3c.domain(41481).groups().fetch(listChecker(done, "Internationalization Working Group"));
     });
-    it("have activities", function (done) {
-        w3c.domain(41481).activities().fetch(listChecker(done, "Style"));
-    });
     it("have users", function (done) {
         w3c.domain(41481).users().fetch(listChecker(done, "Philippe Le Hégaret"));
     });
@@ -130,10 +127,10 @@ describe("Specifications Version", function () {
         w3c.specification("SVG11").version("20030114").editors().fetch(listChecker(done, "Dean Jackson"));
     });
     it("have next", function (done) {
-        w3c.specification("CSS2").version("20070719").next().fetch(listChecker(done, "Candidate Recommendation"));
+        w3c.specification("CSS2").version("20070719").successor().fetch(listChecker(done, "Candidate Recommendation"));
     });
     it("have previous", function (done) {
-        w3c.specification("CSS2").version("20090423").previous().fetch(listChecker(done, "Candidate Recommendation"));
+        w3c.specification("CSS2").version("20090423").predecessor().fetch(listChecker(done, "Candidate Recommendation"));
     });
 });
 

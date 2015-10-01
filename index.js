@@ -98,11 +98,15 @@ function rootList (type) {
 // generates steps beneath an existing one that has an ID
 function subSteps (obj, items) {
     util.inherits(obj, Ctx);
+
+    var key = "teamcontacts versions successor predecessor".split(" ")
+    ,   propKey = "team_contacts version-history successor-version predecessor-version".split(" ");
     items.forEach(function (it) {
         obj.prototype[it] = function () {
             this.steps.push(it);
             this.type = "list";
-            this.linkKey = it;
+            var i = key.indexOf(it);
+            this.linkKey = (i >= 0) ? propKey[i] : it;
             return this;
         };
     });
@@ -127,11 +131,10 @@ exports.domains = rootList("domains");
 function DomainCtx (ctx) {
     Ctx.call(this, ctx);
 }
-subSteps(DomainCtx, ["activities", "groups", "services", "users"]);
+subSteps(DomainCtx, ["groups", "services", "users"]);
 
 // w3c.domain(41481).fetch()
 // w3c.domain(41481).groups().fetch()
-// w3c.domain(41481).activities().fetch()
 // w3c.domain(41481).services().fetch()
 // w3c.domain(41481).users().fetch()
 exports.domain = idStep(DomainCtx, "domains");
@@ -191,7 +194,7 @@ SpecificationCtx.prototype.latest = function () {
 function VersionCtx (ctx) {
     Ctx.call(this, ctx);
 }
-subSteps(VersionCtx, ["deliverers", "editors", "next", "previous"]);
+subSteps(VersionCtx, ["deliverers", "editors", "successor", "predecessor"]);
 SpecificationCtx.prototype.version = idStep(VersionCtx, "versions", true);
 
 // w3c.specification("SVG").fetch()
