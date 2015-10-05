@@ -1,5 +1,5 @@
 
-# w3capi — A Node client for the W3C API
+# node-w3capi — A Node client for the W3C API
 
 ***WARNING***: This library is a client for an API that is currently in private testing. Using it
 will break in all sorts of ways. There are bugs. There will be changes. Do not use this unless you
@@ -17,7 +17,7 @@ then causes the data to be fetched.
 
 The usual:
 
-    npm install w3capi
+    npm install node-w3capi
 
 ## IMPORTANT
 
@@ -48,7 +48,7 @@ This gives you a client instance that's immediately ready to work. You then chai
 specify what you want to get, and fetch with a callback. For example:
 
 ```js
-var w3c = require("w3capi")
+var w3c = require("node-w3capi")
 ,   handler = function (err, data) {
         if (err) return console.error("[ERROR]", err);
         console.log(data);

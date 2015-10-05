@@ -1,8 +1,8 @@
 {
-  "name": "w3capi",
+  "name": "node-w3capi",
   "version": "1.1.0",
   "license": "MIT",
-  "repository": "https://github.com/darobin/w3capi.git",
+  "repository": "https://github.com/w3c/node-w3capi.git",
   "dependencies": {
     "async": "^1.4.0",
     "superagent": "^1.3.0"
