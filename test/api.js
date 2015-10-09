@@ -127,10 +127,10 @@ describe("Specifications Version", function () {
         w3c.specification("SVG11").version("20030114").editors().fetch(listChecker(done, "Dean Jackson"));
     });
     it("have next", function (done) {
-        w3c.specification("CSS2").version("20070719").successor().fetch(listChecker(done, "Candidate Recommendation"));
+        w3c.specification("CSS2").version("20070719").successors().fetch(listChecker(done, "Candidate Recommendation"));
     });
     it("have previous", function (done) {
-        w3c.specification("CSS2").version("20090423").predecessor().fetch(listChecker(done, "Candidate Recommendation"));
+        w3c.specification("CSS2").version("20090423").predecessors().fetch(listChecker(done, "Candidate Recommendation"));
     });
 });
 
