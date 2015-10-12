@@ -99,8 +99,8 @@ function rootList (type) {
 function subSteps (obj, items) {
     util.inherits(obj, Ctx);
 
-    var key = "teamcontacts versions successor predecessor".split(" ")
-    ,   propKey = "team_contacts version-history successor-version predecessor-version".split(" ");
+    var key = "teamcontacts versions successors predecessors".split(" ")
+    ,   propKey = "team-contacts version-history successor-version predecessor-version".split(" ");
     items.forEach(function (it) {
         obj.prototype[it] = function () {
             this.steps.push(it);
@@ -194,7 +194,7 @@ SpecificationCtx.prototype.latest = function () {
 function VersionCtx (ctx) {
     Ctx.call(this, ctx);
 }
-subSteps(VersionCtx, ["deliverers", "editors", "successor", "predecessor"]);
+subSteps(VersionCtx, ["deliverers", "editors", "successors", "predecessors"]);
 SpecificationCtx.prototype.version = idStep(VersionCtx, "versions", true);
 
 // w3c.specification("SVG").fetch()
