@@ -1,6 +1,6 @@
 {
   "name": "node-w3capi",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "repository": "https://github.com/w3c/node-w3capi.git",
   "dependencies": {
