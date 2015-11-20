@@ -1,16 +1,7 @@
 
 # node-w3capi — A Node client for the W3C API
 
-***WARNING***: This library is a client for an API that is currently in private testing. Using it
-will break in all sorts of ways. There are bugs. There will be changes. Do not use this unless you
-know what you're doing.
-
-***YOU HAVE BEEN WARNED***
-
-Ok, so, on to the useful bits.
-
-This library provides a client for the W3C API, which exposes information about things such as
-specifications, groups, users, etc. It follows a simple pattern in which one builds up a query, and
+This library provides a client for the [W3C API](https://github.com/w3c/w3c-api/), which exposes information about things such as specifications, groups, users, etc. It follows a simple pattern in which one builds up a query, and
 then causes the data to be fetched.
 
 ## Installation
