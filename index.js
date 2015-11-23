@@ -5,7 +5,7 @@ var sua = require("superagent")
 ;
 
 // this is the base URL we use, which can be overridden
-exports.baseURL = "https://api-test.w3.org/";
+exports.baseURL = "https://api.w3.org/";
 
 // this is the API key, you have to set it
 exports.apiKey = null;
