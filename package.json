@@ -1,8 +1,20 @@
 {
   "name": "node-w3capi",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
+  "description": "A Node.js client for the W3C API",
+  "keywords": [
+    "W3C",
+    "API",
+    "Node",
+    "Node.js",
+    "client"
+  ],
+  "author": "W3C",
   "repository": "https://github.com/w3c/node-w3capi.git",
+  "bugs": {
+    "url": "https://github.com/w3c/node-w3capi/issues"
+  },
   "dependencies": {
     "async": "^1.4.0",
     "superagent": "^1.3.0"
