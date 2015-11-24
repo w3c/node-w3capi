@@ -16,8 +16,8 @@ function makeRequest (url, embed, page) {
     if (embed) query.embed = "true";
     if (page) query.page = page;
     if (!exports.apiKey) throw new Error("No API key.");
-    query.apikey = exports.apiKey;
     return sua.get(url)
+                .set('Authorization', 'W3C-API apikey="' + exports.apiKey + '"')
                 .accept("json")
                 .query(query)
     ;

@@ -136,18 +136,18 @@ describe("Specifications Version", function () {
 
 
 describe("Users", function () {
-    var dino = "ivpki36ou94oo08osswccs80gcwogwk";
+    var ian = "ggdj8tciu9kwwc4o4ww888ggkwok0c8";
     it("can be fetched", function (done) {
-        w3c.user(dino).fetch(itemChecker(done, "given", "Dean"));
+        w3c.user(ian).fetch(itemChecker(done, "given", "Ian"));
     });
     it("have affiliations", function (done) {
-        w3c.user(dino).affiliations().fetch(listChecker(done));
+        w3c.user(ian).affiliations().fetch(listChecker(done));
     });
     it("have groups", function (done) {
-        w3c.user(dino).groups().fetch(listChecker(done, "Alumni"));
+        w3c.user(ian).groups().fetch(listChecker(done, "Community Council"));
     });
     it("have specifications", function (done) {
-        w3c.user(dino).specifications().fetch(listChecker(done, "Scalable Vector Graphics (SVG) Full 1.2 Specification"));
+        w3c.user(ian).specifications().fetch(listChecker(done, "Accessibility Features of CSS"));
     });
 });
 
