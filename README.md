@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/w3c/node-w3capi.svg?branch=master)](https://travis-ci.org/w3c/node-w3capi)
 
 # node-w3capi — A Node client for the W3C API
 
