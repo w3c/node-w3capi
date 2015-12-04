@@ -24,7 +24,7 @@
     "mocha": "^2.2.5"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -c -G"
   },
   "engines": {
     "node": ">=5.1.0",

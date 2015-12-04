@@ -3,7 +3,7 @@ language: node_js
 node_js:
 - 5.1.0
 script:
-- W3CAPIKEY=$APIKEY mocha
+- W3CAPIKEY=$APIKEY mocha -c
 notifications:
   irc:
     channels:
