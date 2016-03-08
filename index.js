@@ -148,7 +148,7 @@ exports.groups = rootList("groups");
 function GroupCtx (ctx) {
     Ctx.call(this, ctx);
 }
-subSteps(GroupCtx, ["chairs", "services", "specifications", "teamcontacts", "users", "charters"]);
+subSteps(GroupCtx, ["chairs", "services", "specifications", "teamcontacts", "users", "charters", "participations"]);
 GroupCtx.prototype.charter = idStep(null, "charters");
 
 // w3c.group(54381).fetch()
