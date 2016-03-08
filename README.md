@@ -2,29 +2,31 @@
 
 # node-w3capi — A Node client for the W3C API
 
-This library provides a client for the [W3C API](https://github.com/w3c/w3c-api/), which exposes information about things such as specifications, groups, users, etc. It follows a simple pattern in which one builds up a query, and
-then causes the data to be fetched.
+This library provides a client for the [W3C API](https://github.com/w3c/w3c-api), which exposes information about things such as specifications, groups, users, etc.
+It follows a simple pattern in which one builds up a query, and then causes the data to be fetched.
 
 ## Installation
 
 The usual:
 
-    npm install node-w3capi
+```sh
+npm install node-w3capi
+```
 
-## IMPORTANT
+### :warning: Important
 
-The API is only available if you have an API key. In order to obtain one, you need to apply through
-your W3C account page.
+the API is only available if you have an API key.
+In order to obtain one, [you need to apply through your W3C account page](https://w3c.github.io/w3c-api/#apikeys).
 
-If you wish to run the tests, you need to set an environment variable named `W3CAPIKEY` to that 
-value, as in
+If you wish to run the tests, you need to set an environment variable named `W3CAPIKEY` to that value, as in
 
-    W3CAPIKEY=deadb33f mocha
+```sh
+W3CAPIKEY=deadb33f mocha
+```
 
 ## API
 
-This documentation does not describe the fields that the various objects have; refer to the W3C 
-API's documentation for that.
+This documentation does not describe the fields that the various objects have; refer to the [W3C API's documentation](https://api.w3.org/doc) for that.
 
 Everything always starts in the same way:
 
@@ -61,7 +63,7 @@ w3c.specification("SVG11")
 ```
 
 If you are familiar with the W3C API you know that it supports paging. This library hides that fact
-and when it sees a paged list of results it *always* fetches the whole set. Typically that is a 
+and when it sees a paged list of results it *always* fetches the whole set. Typically that is a
 very reasonable number of items.
 
 ### `fetch([options], cb)`
@@ -92,8 +94,8 @@ w3c.specification("SVG11").supersedes().fetch()
 
 You can list all specifications, or get a single one using its shortname. For a given specification,
 you can list its versions and for a given version its editors and deliverers (the groups who shipped
-it), as well as which versions were the previous or next. You can know which specification 
-supersedes or was superseded by which other. You can use `latest()` to get the latest version 
+it), as well as which versions were the previous or next. You can know which specification
+supersedes or was superseded by which other. You can use `latest()` to get the latest version
 without having to list them.
 
 ### Groups
@@ -110,6 +112,7 @@ w3c.group(54381).teamcontacts().fetch()
 w3c.group(54381).users().fetch()
 w3c.group(54381).charters().fetch()
 w3c.group(46884).charter(89).fetch()
+w3c.group(46884).participations().fetch()
 ```
 
 You can list all groups or get a specific one by its ID (this is the same ID used in IPP, if you're
@@ -128,7 +131,7 @@ w3c.user("ivpki36ou94oo08osswccs80gcwogwk").groups().fetch()
 w3c.user("ivpki36ou94oo08osswccs80gcwogwk").specifications().fetch()
 ```
 
-Users cannot be listed, and the ID used to fetch them is an opaque identifier (not the ID used 
+Users cannot be listed, and the ID used to fetch them is an opaque identifier (not the ID used
 internally in the system so as to make it harder to slurp them all in). Various sublists can be
 obtained.
 
