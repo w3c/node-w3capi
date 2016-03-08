@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build": "browserify lib/index.js -s w3capi -o lib/w3capi.js",
-    "test": "mocha -c -G"
+    "test": "mocha"
   },
   "engines": {
     "node": "4.3 || 5.7",
