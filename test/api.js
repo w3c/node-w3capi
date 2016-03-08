@@ -80,6 +80,9 @@ describe("Groups", function () {
     it("have charters that can be fetched", function (done) {
         w3c.group(32061).charter(102).fetch(itemChecker(done, "end", "1999-02-28"));
     });
+    it("have participations", function (done) {
+        w3c.group(32061).participations().fetch(listChecker(done));
+    });
 });
 
 
@@ -163,4 +166,3 @@ describe("Embeds", function () {
         w3c.specifications().fetch({ embed: true }, embedChecker(done, "shortname", "wbxml"));
     });
 });
-
