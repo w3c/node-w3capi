@@ -2,13 +2,17 @@
   "name": "node-w3capi",
   "version": "1.2.2",
   "license": "MIT",
-  "description": "A Node.js client for the W3C API",
+  "description": "A JavaScript client for the W3C API",
   "main": "lib/index.js",
   "keywords": [
     "W3C",
     "API",
     "Node",
     "Node.js",
+    "AMD",
+    "JavaScript",
+    "RequireJS",
+    "JS",
     "client"
   ],
   "author": "W3C",
