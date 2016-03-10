@@ -60,20 +60,17 @@ specify what you want to get, and fetch with a callback. For example:
 var handler = function (err, data) {
     if (err) return console.error("[ERROR]", err);
     console.log(data);
-}
-;
+};
 
 // just list all the groups
 w3capi.groups()
-   .fetch(handler)
-;
+   .fetch(handler);
 
 // get the editors for a specific version of a specification
 w3capi.specification("SVG11")
    .version("20030114")
    .editors
-   .fetch(handler)
-;
+   .fetch(handler);
 ```
 
 If you are familiar with the W3C API you know that it supports paging. This library hides that fact
