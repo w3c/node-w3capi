@@ -1,13 +1,13 @@
 sudo: false
 language: node_js
 node_js:
-- 5.1.0
+  - stable
 script:
-- W3CAPIKEY=$APIKEY mocha -c
+- W3CAPIKEY=$APIKEY npm test
 notifications:
   irc:
     channels:
-    - irc.w3.org#webapi
+    - "irc.w3.org#webapi"
     skip_join: true
 env:
   global:
