@@ -45,6 +45,9 @@ describe("Domains", function () {
     it("have groups", function (done) {
         w3c.domain(41481).groups().fetch(listChecker(done, "Internationalization Working Group"));
     });
+    it("have services", function (done) {
+        w3c.domain(41481).services().fetch(listChecker(done, "Issues Tracking"));
+    });
     it("have users", function (done) {
         w3c.domain(41481).users().fetch(listChecker(done, "Philippe Le Hégaret"));
     });
@@ -148,6 +151,9 @@ describe("Users", function () {
     });
     it("have groups", function (done) {
         w3c.user(ian).groups().fetch(listChecker(done, "Community Council"));
+    });
+    it("have participations", function (done) {
+        w3c.user(ian).participations().fetch(listChecker(done, "Web Payments Working Group"));
     });
     it("have specifications", function (done) {
         w3c.user(ian).specifications().fetch(listChecker(done, "Accessibility Features of CSS"));
