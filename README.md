@@ -139,6 +139,7 @@ Usage summary:
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").fetch()
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").affiliations().fetch()
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").groups().fetch()
+w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").participations().fetch()
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").specifications().fetch()
 ```
 
@@ -154,7 +155,6 @@ Usage summary:
 w3capi.domains().fetch()
 w3capi.domain(41481).fetch()
 w3capi.domain(41481).groups().fetch()
-w3capi.domain(41481).activities().fetch()
 w3capi.domain(41481).services().fetch()
 w3capi.domain(41481).users().fetch()
 ```
