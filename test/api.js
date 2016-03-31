@@ -160,6 +160,31 @@ describe("Users", function () {
     });
 });
 
+describe('Affiliations', function () {
+    const STAFF = 52794;
+    it('can be listed', function (done) {
+        w3c.affiliations().fetch(listChecker(done, 'Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)'));
+    });
+    it('can be fetched', function (done) {
+        w3c.affiliation(STAFF).fetch(itemChecker(done, 'name', 'W3C Staff'));
+    });
+    it('have participants', function (done) {
+        w3c.affiliation(STAFF).participants().fetch(listChecker(done, 'Kazuyuki Ashimura'));
+    });
+    it('have participations', function (done) {
+        w3c.affiliation(STAFF).participations().fetch(listChecker(done, 'Evaluation and Repair Tools Working Group'));
+    });
+});
+
+describe('Participations', function () {
+     const WIKI = 1503;
+    it('can be fetched', function (done) {
+        w3c.participation(WIKI).fetch(itemChecker(done, 'created', '2011-03-07 08:59:38'));
+    });
+    it('have participants', function (done) {
+        w3c.participation(WIKI).participants().fetch(listChecker(done, 'Oliver Friedrich'));
+    });
+});
 
 describe("Embeds", function () {
     it("apply to domains", function (done) {

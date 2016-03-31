@@ -109,7 +109,7 @@ it), as well as which versions were the previous or next. You can know which spe
 supersedes or was superseded by which other. You can use `latest()` to get the latest version
 without having to list them.
 
-### Groups
+### Groups and charters
 
 Usage summary:
 
@@ -174,3 +174,23 @@ w3capi.services(2).groups().fetch()
 Services model tools that groups (or domains) can use, such as IRC, a bug tracker, a mailing list,
 etc. At this point in time, the services database isn't well-maintained but it could become more
 useful in future.
+
+### Affiliations
+
+Usage summary:
+
+```js
+w3capi.affiliations().fetch()
+w3capi.affiliation(1234).fetch()
+w3capi.affiliation(1234).participants().fetch()
+w3capi.affiliation(1234).participations().fetch()
+```
+
+### Participations
+
+Usage summary:
+
+```js
+w3capi.participation(555).fetch()
+w3capi.participation(555).participants().fetch()
+```
