@@ -62,8 +62,7 @@ describe("Groups", function () {
         w3c.group(32061).fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
     });
     it("have chairs", function (done) {
-        // XXX this will change soon
-        w3c.group(32061).chairs().fetch(listChecker(done, "Daniel Glazman"));
+        w3c.group(32061).chairs().fetch(listChecker(done, "Rossen Atanassov"));
     });
     it("have services", function (done) {
         w3c.group(32061).services().fetch(listChecker(done, "Wiki"));
