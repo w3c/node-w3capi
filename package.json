@@ -1,6 +1,6 @@
 {
   "name": "node-w3capi",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "license": "MIT",
   "description": "A JavaScript client for the W3C API",
   "main": "lib/index.js",
@@ -21,13 +21,13 @@
     "url": "https://github.com/w3c/node-w3capi/issues"
   },
   "dependencies": {
-    "async": "2.0.1",
+    "async": "2.1.2",
     "superagent": "2.3.0"
   },
   "devDependencies": {
-    "browserify": "13.0.1",
+    "browserify": "13.1.1",
     "expect.js": "0.3",
-    "mocha": "3.1.0"
+    "mocha": "3.1.2"
   },
   "scripts": {
     "build": "browserify lib/index.js -s w3capi -o lib/w3capi.js",
