@@ -1,6 +1,6 @@
 {
   "name": "node-w3capi",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "license": "MIT",
   "description": "A JavaScript client for the W3C API",
   "main": "lib/index.js",
