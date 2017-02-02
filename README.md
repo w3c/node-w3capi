@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/w3c/node-w3capi.svg?branch=master)](https://travis-ci.org/w3c/node-w3capi)
+[![npm version](https://img.shields.io/npm/v/node-w3capi.svg)](https://npmjs.org/package/node-w3capi)
+[![Licence](https://img.shields.io/npm/l/node-w3capi.svg)](LICENSE)
+[![Build Status](https://travis-ci.org/w3c/node-w3capi.svg?branch=gh-pages)](https://travis-ci.org/w3c/node-w3capi)
+[![Dependency Status](https://david-dm.org/w3c/node-w3capi.svg)](https://david-dm.org/w3c/node-w3capi)
+[![devDependency Status](https://david-dm.org/w3c/node-w3capi/dev-status.svg)](https://david-dm.org/w3c/node-w3capi#info=devDependencies)
 
 # node-w3capi — A JavaScript client for the W3C API
 
@@ -40,8 +44,8 @@ In order to obtain one, [you need to apply through your W3C account page](https:
 
 If you wish to run the tests, you need to set an environment variable named `W3CAPIKEY` to that value, as in
 
-```sh
-W3CAPIKEY=deadb33f mocha
+```bash
+W3CAPIKEY=deadb33f npm test
 ```
 
 ## API

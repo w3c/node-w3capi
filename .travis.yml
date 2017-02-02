@@ -1,9 +1,9 @@
-sudo: false
 language: node_js
 node_js:
-  - stable
+  - "6"
+  - "7"
 script:
-- W3CAPIKEY=$APIKEY npm test
+  - W3CAPIKEY=$APIKEY npm test
 notifications:
   irc:
     channels:
