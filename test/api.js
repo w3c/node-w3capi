@@ -1,4 +1,3 @@
-
 var expect = require("expect.js")
 ,   w3c = require("..")
 ;
@@ -35,21 +34,18 @@ function itemChecker (done, field, value) {
     };
 }
 
-describe("Domains", function () {
-    it("can be listed", function (done) {
-        w3c.domains().fetch(listChecker(done, "Interaction"));
+describe('Functions', function () {
+    it('can be listed', function (done) {
+        w3c.functions().fetch(listChecker(done, 'Systems'));
     });
-    it("can be fetched", function (done) {
-        w3c.domain(41481).fetch(itemChecker(done, "name", "Interaction"));
+    it('can be fetched', function (done) {
+        w3c.function(109).fetch(itemChecker(done, 'name', 'Systems'));
     });
-    it("have groups", function (done) {
-        w3c.domain(41481).groups().fetch(listChecker(done, "Internationalization Working Group"));
+    it('have services', function (done) {
+        w3c.function(109).services().fetch(listChecker(done, 'Issues Tracking'));
     });
-    it("have services", function (done) {
-        w3c.domain(41481).services().fetch(listChecker(done, "Issues Tracking"));
-    });
-    it("have users", function (done) {
-        w3c.domain(41481).users().fetch(listChecker(done, "Philippe Le Hégaret"));
+    it('have users', function (done) {
+        w3c.function(109).users().fetch(listChecker(done, 'Laurent Carcone'));
     });
 });
 
@@ -186,8 +182,8 @@ describe('Participations', function () {
 });
 
 describe("Embeds", function () {
-    it("apply to domains", function (done) {
-        w3c.domains().fetch({ embed: true }, embedChecker(done, "name", "Management"));
+    it('apply to functions', function (done) {
+        w3c.functions().fetch({ embed: true }, embedChecker(done, 'name', 'Management'));
     });
     it("apply to groups", function (done) {
         w3c.groups().fetch({ embed: true }, embedChecker(done, "type", "community group"));

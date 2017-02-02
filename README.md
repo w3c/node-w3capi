@@ -147,20 +147,18 @@ Users cannot be listed, and the ID used to fetch them is an opaque identifier (n
 internally in the system so as to make it harder to slurp them all in). Various sublists can be
 obtained.
 
-### Domains
+### Functions
 
 Usage summary:
 
 ```js
-w3capi.domains().fetch()
-w3capi.domain(41481).fetch()
-w3capi.domain(41481).groups().fetch()
-w3capi.domain(41481).services().fetch()
-w3capi.domain(41481).users().fetch()
+w3capi.functions().fetch()
+w3capi.function(109).fetch()
+w3capi.function(109).services().fetch()
+w3capi.function(109).users().fetch()
 ```
 
-Domains are an organisational structure internal to the W3C, of little interest to the outside world
-except to note that the Interaction Domain is the best.
+Functions are an organisational structure internal to the W3C, of little interest to the outside world.
 
 ### Services
 
@@ -171,7 +169,7 @@ w3capi.services(2).fetch()
 w3capi.services(2).groups().fetch()
 ```
 
-Services model tools that groups (or domains) can use, such as IRC, a bug tracker, a mailing list,
+Services model tools that groups (or functions) can use, such as IRC, a bug tracker, a mailing list,
 etc. At this point in time, the services database isn't well-maintained but it could become more
 useful in future.
 
