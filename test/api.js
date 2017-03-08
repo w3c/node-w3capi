@@ -141,6 +141,10 @@ describe("Users", function () {
     it("can be fetched", function (done) {
         w3c.user(ian).fetch(itemChecker(done, "given", "Ian"));
     });
+    it("can be retrieved by github account id", function (done) {
+        // this is jean-gui
+        w3c.user({type: 'github', id: '1479073'}).fetch(itemChecker(done, "given", "Jean-Guilhem"));
+    });
     it("have affiliations", function (done) {
         w3c.user(ian).affiliations().fetch(listChecker(done));
     });
