@@ -141,6 +141,7 @@ Usage summary:
 
 ```js
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").fetch()
+w3capi.user({type: "github", id: "1479073"}).fetch()
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").affiliations().fetch()
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").groups().fetch()
 w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").participations().fetch()
@@ -148,7 +149,7 @@ w3capi.user("ivpki36ou94oo08osswccs80gcwogwk").specifications().fetch()
 ```
 
 Users cannot be listed, and the ID used to fetch them is an opaque identifier (not the ID used
-internally in the system so as to make it harder to slurp them all in). Various sublists can be
+internally in the system so as to make it harder to slurp them all in). Alternatively, users can be fetched by their known 3rd-party account id (assuming they have been connected from the user profile). Various sublists can be
 obtained.
 
 ### Functions
