@@ -3,12 +3,9 @@ node_js:
   - "6"
   - "8"
 script:
-  - W3CAPIKEY=$APIKEY npm test
+  - npm test
 notifications:
   irc:
     channels:
     - "irc.w3.org#webapi"
     skip_join: true
-env:
-  global:
-    secure: Tjw4AfLnMEj9yRvLsckEoVJHIke4OlX+5B79vKbkM+nDb55SsRdbgXa8uAEznNCXXtPB+7V2iChbp0brxLOI4sAeYuKbdSkSmak/FAS/zpWyjtYKFVh3slyjM5KBqEFIy/bRUdXDnovo6JOzka49xWGb9U9U4A7rCXb7Pa8InQTCQPE4bzJc4wZnYJTXCKMsCcsNZ9MWb0phNAQR1/EGRMEAuZpGhYH9/azNYKxCJRy+ZFW1bxwzNa7/hRx9WE9UJMBtgwEg+H7f26KcEMjwiA2ibo1hsCkgfsCiqXh9tEfcLaHNTe++FLtI4t0BYSzwy41x1Ed3gzqsIuQ2zij5Boy0ssqzcHSNCtAN2PEitkAL5QCz7+IpxT/NBZ66Cix7h8A2ymyBKizUD0LtJTIdGaSEw/bjC0IZowfQrhI0PkMb/AA1ZaYkRT9oV5GVU0oYGUH2riG4PZRAGSt6XH91RWZpFr4PHcH2ZcKTTZVf8Ha2xgvz2g5e90Ttnn5LWDFfRXISng90He2+UHkjtVvPfVQfX7VZ6IYj9Ipjz3h/H2BC/Le7HzgjOosqTSFFfsCJZ6ye3OMSOIHRjTKBDgVkddCSmptMTSDsGsnJIUlS3nsnZTM8pOSzBngyOMN7olZvzXswy7AgtWqJRBjFji8+z5fuQD2b2a97sXEBa4vciEo=
