@@ -171,7 +171,7 @@ describe('Affiliations', function () {
         w3c.affiliation(STAFF).participants().fetch(listChecker(done, 'Kazuyuki Ashimura'));
     });
     it('have participations', function (done) {
-        w3c.affiliation(STAFF).participations().fetch(listChecker(done, 'Web and TV Interest Group'));
+        w3c.affiliation(STAFF).participations().fetch(listChecker(done, 'Web and Broadcasting Business Group'));
     });
 });
 
