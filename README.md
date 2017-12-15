@@ -28,7 +28,7 @@ w3capi.apiKey = 'deadb33f'; // Your API key.
 
 ### Client-side
 
-Grab the AMD module ([`lib/w3capi.js`](https://github.com/w3c/node-w3capi/blob/master/lib/w3capi.js)) and use it, eg via [RequireJS](http://requirejs.org/):
+Grab the AMD module ([`lib/w3capi.js`](https://w3c.github.io/node-w3capi/lib/w3capi.js)) and use it, eg via [RequireJS](http://requirejs.org/):
 
 ```js
 requirejs(['w3capi'], function(w3capi) {
