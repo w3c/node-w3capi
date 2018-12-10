@@ -67,7 +67,7 @@ describe("Groups", function () {
         w3c.group(32061).specifications().fetch(listChecker(done, "Selectors Level 3"));
     });
     it("have teamcontacts", function (done) {
-        w3c.group(32061).teamcontacts().fetch(listChecker(done, "Bert Bos"));
+        w3c.group(32061).teamcontacts().fetch(listChecker(done, "Chris Lilley"));
     });
     it("have users", function (done) {
         w3c.group(32061).users().fetch(listChecker(done, "Tab Atkins Jr."));
