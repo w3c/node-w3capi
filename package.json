@@ -21,13 +21,13 @@
     "url": "https://github.com/w3c/node-w3capi/issues"
   },
   "dependencies": {
-    "async": "2.1.4",
-    "superagent": "^3.8.3"
+    "async": "2.6.1",
+    "superagent": "4.0.0"
   },
   "devDependencies": {
-    "browserify": "14.0.0",
+    "browserify": "16.2.3",
     "expect.js": "0.3",
-    "mocha": "^5.2.0"
+    "mocha": "5.2.0"
   },
   "scripts": {
     "build": "browserify lib/index.js -s w3capi -o lib/w3capi.js",
