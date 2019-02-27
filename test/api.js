@@ -8,11 +8,11 @@ if (!process.env.W3CAPIKEY) {
 }
 w3c.apiKey = process.env.W3CAPIKEY;
 
-function listChecker (done, title) {
+function listChecker (done, title, field = 'title') {
     return function (err, data) {
         expect(err).to.not.be.ok();
         expect(data).to.be.an("array");
-        if (title) expect(data.some(function (it) { return it.title === title; })).to.be.ok();
+        if (title) expect(data.some(function (it) { return it[field] === title; })).to.be.ok();
         done();
     };
 }
@@ -184,6 +184,17 @@ describe('Participations', function () {
         w3c.participation(WIKI).participants().fetch(listChecker(done, 'Oliver Friedrich'));
     });
 });
+
+describe('Translations', function () {
+     const XHTMLBASIC_CA = 24;
+    it("can be listed", function (done) {
+        w3c.translations().fetch(listChecker(done, "XHTML™ Basic"));
+    });
+    it('can be fetched', function (done) {
+        w3c.translation(XHTMLBASIC_CA).fetch(itemChecker(done, 'language', 'ca'));
+    });
+});
+
 
 describe("Embeds", function () {
     it('apply to functions', function (done) {
