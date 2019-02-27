@@ -195,6 +195,15 @@ describe('Translations', function () {
     });
 });
 
+describe('Call for translations', function () {
+     const XHTMLBASIC = 13;
+    it("can be listed", function (done) {
+        w3c.callsfortranslation().fetch(listChecker(done, "XHTML™ Basic"));
+    });
+    it('can be fetched', function (done) {
+        w3c.callfortranslation(XHTMLBASIC).fetch(itemChecker(done, 'title', 'XHTML™ Basic'));
+    });
+});
 
 describe("Embeds", function () {
     it('apply to functions', function (done) {
