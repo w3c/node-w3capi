@@ -205,6 +205,16 @@ describe('Call for translations', function () {
     });
 });
 
+// Uncomment and adapt the test when we have a contribution in the database
+//describe('Non-participant licensing commitments', function () {
+//    it("can be listed", function (done) {
+//        w3c.nplcs().fetch(listChecker(done, 15309233, 'repoId'));
+//    });
+//    it('can be fetched', function (done) {
+//        w3c.nplc({repoId: 15309233, pr: 840}).fetch(itemChecker(done, 'repository', 15309233));
+//    });
+//});
+
 describe("Embeds", function () {
     it('apply to functions', function (done) {
         w3c.functions().fetch({ embed: true }, embedChecker(done, 'name', 'Management'));
