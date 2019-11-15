@@ -157,6 +157,9 @@ describe("Users", function () {
     it("have specifications", function (done) {
         w3c.user(ian).specifications().fetch(listChecker(done, "Accessibility Features of CSS"));
     });
+    it("is team contact of", function (done) {
+        w3c.user(ian).teamcontactofgroups().fetch(listChecker(done, "Web Payments Working Group"));
+    });
 });
 
 describe('Affiliations', function () {
