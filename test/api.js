@@ -229,3 +229,13 @@ describe("Embeds", function () {
         w3c.specifications().fetch({ embed: true }, embedChecker(done, "shortname", "wbxml"));
     });
 });
+
+describe("Specification Series", function() {
+    const CSSCOLOR = 'css-color';
+    it('can be fetched', function (done) {
+        w3c.specificationseries(CSSCOLOR).fetch(itemChecker(done, 'shortname', CSSCOLOR));
+    });
+    it("have specifications", function (done) {
+        w3c.specificationseries(CSSCOLOR).specifications().fetch(listChecker(done, "CSS Color Module Level 3"));
+    });
+});
