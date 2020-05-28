@@ -39,13 +39,13 @@ describe('Functions', function () {
         w3c.functions().fetch(listChecker(done, 'Systems'));
     });
     it('can be fetched', function (done) {
-        w3c.function(109).fetch(itemChecker(done, 'name', 'Systems'));
+        w3c.function(122803).fetch(itemChecker(done, 'name', 'Systems'));
     });
     it('have services', function (done) {
-        w3c.function(109).services().fetch(listChecker(done, 'Issues Tracking'));
+        w3c.function(122803).services().fetch(listChecker(done, 'Issue Tracking'));
     });
     it('have users', function (done) {
-        w3c.function(109).users().fetch(listChecker(done, 'Laurent Carcone'));
+        w3c.function(122803).users().fetch(listChecker(done, 'Laurent Carcone'));
     });
 });
 
@@ -208,15 +208,14 @@ describe('Call for translations', function () {
     });
 });
 
-// Uncomment and adapt the test when we have a contribution in the database
-//describe('Non-participant licensing commitments', function () {
-//    it("can be listed", function (done) {
-//        w3c.nplcs().fetch(listChecker(done, 15309233, 'repoId'));
-//    });
-//    it('can be fetched', function (done) {
-//        w3c.nplc({repoId: 15309233, pr: 840}).fetch(itemChecker(done, 'repository', 15309233));
-//    });
-//});
+describe('Non-participant licensing commitments', function () {
+   it("can be fetched", function (done) {
+       w3c.nplcs().fetch(listChecker(done, 9252268, 'repoId'));
+   });
+   it('can be fetched', function (done) {
+       w3c.nplc({repoId: 9252268, pr: 4575}).fetch(itemChecker(done, 'repository-id', 9252268));
+   });
+});
 
 describe("Embeds", function () {
     it('apply to functions', function (done) {
@@ -227,5 +226,15 @@ describe("Embeds", function () {
     });
     it("apply to specifications", function (done) {
         w3c.specifications().fetch({ embed: true }, embedChecker(done, "shortname", "wbxml"));
+    });
+});
+
+describe("Specification Series", function() {
+    const CSSCOLOR = 'css-color';
+    it('can be fetched', function (done) {
+        w3c.specificationseries(CSSCOLOR).fetch(itemChecker(done, 'shortname', CSSCOLOR));
+    });
+    it("have specifications", function (done) {
+        w3c.specificationseries(CSSCOLOR).specifications().fetch(listChecker(done, "CSS Color Module Level 3"));
     });
 });
