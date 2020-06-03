@@ -6,14 +6,7 @@
   "main": "lib/index.js",
   "keywords": [
     "W3C",
-    "API",
-    "Node",
-    "Node.js",
-    "AMD",
-    "JavaScript",
-    "RequireJS",
-    "JS",
-    "client"
+    "API"
   ],
   "author": "W3C",
   "repository": "https://github.com/w3c/node-w3capi.git",
@@ -22,7 +15,7 @@
   },
   "dependencies": {
     "async": "2.6.1",
-    "superagent": "4.0.0"
+    "superagent": "5.2.2"
   },
   "devDependencies": {
     "browserify": "16.2.3",
@@ -34,7 +27,7 @@
     "test": "mocha --timeout 20000"
   },
   "engines": {
-    "node": "8 || 10",
+    "node": "12 || 14",
     "npm": "6"
   }
 }
