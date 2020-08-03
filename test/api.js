@@ -168,7 +168,7 @@ describe('Affiliations', function () {
         w3c.affiliations().fetch(listChecker(done, 'Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)'));
     });
     it('can be fetched', function (done) {
-        w3c.affiliation(STAFF).fetch(itemChecker(done, 'name', 'W3C Staff'));
+        w3c.affiliation(STAFF).fetch(itemChecker(done, 'name', 'W3C'));
     });
     it('have participants', function (done) {
         w3c.affiliation(STAFF).participants().fetch(listChecker(done, 'Kazuyuki Ashimura'));
@@ -179,12 +179,9 @@ describe('Affiliations', function () {
 });
 
 describe('Participations', function () {
-     const WIKI = 1503;
+    const PARTICIPATION = 656;
     it('can be fetched', function (done) {
-        w3c.participation(WIKI).fetch(itemChecker(done, 'created', '2011-03-07 08:59:38'));
-    });
-    it('have participants', function (done) {
-        w3c.participation(WIKI).participants().fetch(listChecker(done, 'Oliver Friedrich'));
+        w3c.participation(PARTICIPATION).fetch(itemChecker(done, 'created', '2011-10-24 08:50:51'));
     });
 });
 
