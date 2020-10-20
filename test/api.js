@@ -149,7 +149,7 @@ describe("Users", function () {
         w3c.user(ian).affiliations().fetch(listChecker(done));
     });
     it("have groups", function (done) {
-        w3c.user(ian).groups().fetch(listChecker(done, "Community Council"));
+        w3c.user(ian).groups().fetch(listChecker(done, "Community Groups Development Lead"));
     });
     it("have participations", function (done) {
         w3c.user(ian).participations().fetch(listChecker(done, "Web Payments Working Group"));
