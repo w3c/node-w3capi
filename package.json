@@ -18,7 +18,7 @@
     "superagent": "6.1.0"
   },
   "devDependencies": {
-    "browserify": "16.5.2",
+    "browserify": "17.0.0",
     "expect.js": "0.3",
     "mocha": "8.2.0"
   },
