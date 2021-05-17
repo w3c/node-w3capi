@@ -57,29 +57,56 @@ describe("Groups", function () {
     it("can be fetched", function (done) {
         w3c.group(32061).fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
     });
+    it("can be fetched with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
+    });
     it("have chairs", function (done) {
         w3c.group(32061).chairs().fetch(listChecker(done, "Rossen Atanassov"));
+    });
+    it("have chairs with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).chairs().fetch(listChecker(done, "Rossen Atanassov"));
     });
     it("have services", function (done) {
         w3c.group(32061).services().fetch(listChecker(done, "Wiki"));
     });
+    it("have services with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).services().fetch(listChecker(done, "Wiki"));
+    });
     it("have specifications", function (done) {
         w3c.group(32061).specifications().fetch(listChecker(done, "Selectors Level 3"));
+    });
+    it("have specifications with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).specifications().fetch(listChecker(done, "Selectors Level 3"));
     });
     it("have teamcontacts", function (done) {
         w3c.group(32061).teamcontacts().fetch(listChecker(done, "Chris Lilley"));
     });
+    it("have teamcontacts with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).teamcontacts().fetch(listChecker(done, "Chris Lilley"));
+    });
     it("have users", function (done) {
         w3c.group(32061).users().fetch(listChecker(done, "Tab Atkins Jr."));
+    });
+    it("have users with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).users().fetch(listChecker(done, "Tab Atkins Jr."));
     });
     it("have charters", function (done) {
         w3c.group(32061).charters().fetch(listChecker(done));
     });
+    it("have charters with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).charters().fetch(listChecker(done));
+    });
     it("have charters that can be fetched", function (done) {
         w3c.group(32061).charter(102).fetch(itemChecker(done, "end", "1999-02-28"));
     });
+    it("have charters that can be fetched with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).charter(102).fetch(itemChecker(done, "end", "1999-02-28"));
+    });
     it("have participations", function (done) {
         w3c.group(32061).participations().fetch(listChecker(done));
+    });
+    it("have participations with type/shortname", function (done) {
+        w3c.group({type: "wg", shortname: "css"}).participations().fetch(listChecker(done));
     });
 });
 
