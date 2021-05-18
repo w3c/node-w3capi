@@ -57,6 +57,9 @@ describe("Groups", function () {
     it("can be fetched", function (done) {
         w3c.group(32061).fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
     });
+    it("can be fetched with string", function (done) {
+        w3c.group("32061").fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
+    });
     it("can be fetched with type/shortname", function (done) {
         w3c.group({type: "wg", shortname: "css"}).fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
     });
