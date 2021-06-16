@@ -1,6 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/node-w3capi.svg)](https://npmjs.org/package/node-w3capi)
 [![Licence](https://img.shields.io/npm/l/node-w3capi.svg)](LICENSE)
-[![Build Status](https://travis-ci.org/w3c/node-w3capi.svg?branch=gh-pages)](https://travis-ci.org/w3c/node-w3capi)
+[![node-w3capi tests](https://github.com/w3c/node-w3capi/actions/workflows/node.js.yml/badge.svg)](https://github.com/w3c/node-w3capi/actions/workflows/node.js.yml)
 [![Dependency Status](https://david-dm.org/w3c/node-w3capi.svg)](https://david-dm.org/w3c/node-w3capi)
 [![devDependency Status](https://david-dm.org/w3c/node-w3capi/dev-status.svg)](https://david-dm.org/w3c/node-w3capi#info=devDependencies)
 
