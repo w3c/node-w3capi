@@ -27,7 +27,7 @@
     "test": "mocha --timeout 20000"
   },
   "engines": {
-    "node": "12 || 14",
+    "node": "12 || 14 || 16",
     "npm": "6"
   }
 }
