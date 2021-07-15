@@ -1,11 +1,6 @@
 name: node-w3capi tests
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+on: [push, pull_request_target, workflow_dispatch]
 
 jobs:
   test:
@@ -13,10 +8,19 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x]
-    env:
-      W3CAPIKEY: ${{ secrets.W3CAPIKEY }}
+    if: |
+      (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
+      (github.event_name != 'pull_request_target' && github.actor != 'dependabot[bot]')
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v2
+
+    - name: Checkout PR from dependabot
+      if: ${{ github.event_name == 'pull_request_target' }}
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -24,7 +28,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: npm ci
+
     - run: npm test
+      env:
+        W3CAPIKEY: ${{ secrets.W3CAPIKEY }}
 
     - name: Notify failure
       uses: rectalogic/notify-irc@v1
