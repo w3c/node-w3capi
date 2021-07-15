@@ -16,31 +16,31 @@ jobs:
         if: ${{ github.event_name != 'pull_request_target' }}
         uses: actions/checkout@v2
 
-    - name: Checkout PR from dependabot
-      if: ${{ github.event_name == 'pull_request_target' }}
-      uses: actions/checkout@v2
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
+      - name: Checkout PR from dependabot
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - run: npm ci
+      - run: npm ci
 
-    - run: npm test
-      env:
-        W3CAPIKEY: ${{ secrets.W3CAPIKEY }}
+      - run: npm test
+        env:
+          W3CAPIKEY: ${{ secrets.W3CAPIKEY }}
 
-    - name: Notify failure
-      uses: rectalogic/notify-irc@v1
-      if: failure()
-      with:
-        server: "irc.w3.org"
-        port: 6679
-        channel: "#webapi"
-        nickname: gh-action-notifier
-        tls: true
-        message: |
-          ${{ github.actor }} pushed to ${{ github.repository }}. https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} FAILED with node ${{ matrix.node-version}} (PR: ${{ github.event.pull_request.html_url }})
+      - name: Notify failure
+        uses: rectalogic/notify-irc@v1
+        if: failure()
+        with:
+          server: "irc.w3.org"
+          port: 6679
+          channel: "#webapi"
+          nickname: gh-action-notifier
+          tls: true
+          message: |
+            ${{ github.actor }} pushed to ${{ github.repository }}. https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} FAILED with node ${{ matrix.node-version}} (PR: ${{ github.event.pull_request.html_url }})
