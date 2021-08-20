@@ -14,7 +14,7 @@
     "url": "https://github.com/w3c/node-w3capi/issues"
   },
   "dependencies": {
-    "async": "3.2.0",
+    "async": "3.2.1",
     "superagent": "6.1.0"
   },
   "devDependencies": {
