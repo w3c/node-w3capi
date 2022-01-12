@@ -265,3 +265,11 @@ describe("Specification Series", function() {
         w3c.specificationseries(CSSCOLOR).specifications().fetch(listChecker(done, "CSS Color Module Level 3"));
     });
 });
+
+describe("Promises API", function() {
+    it('returns a promise if no callback is set', async function() {
+        const groups = await w3c.groups().fetch();
+        expect(groups).to.be.an("array");
+        expect(groups.some(function (it) { return it.title === "Cascading Style Sheets (CSS) Working Group"; })).to.be.ok();
+    });
+});

@@ -89,6 +89,8 @@ this point that is the only option. You can do without the `options` altogether.
 
 The `cb` receives the typical `err` and `data` parameters.
 
+If no `cb` parameter is provided, the `fetch()` method instead returns a promise that will resolve with the expected data.
+
 ### Specifications
 
 Usage summary:
