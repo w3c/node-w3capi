@@ -235,6 +235,7 @@ describe('Call for translations', function () {
     });
 });
 
+
 describe('Non-participant licensing commitments', function () {
    it("can be fetched", function (done) {
        w3c.nplcs().fetch(listChecker(done, 9252268, 'repoId'));
@@ -243,6 +244,14 @@ describe('Non-participant licensing commitments', function () {
        w3c.nplc({repoId: 9252268, pr: 4575}).fetch(itemChecker(done, 'repository-id', 9252268));
    });
 });
+
+
+describe('Specifications by status', function () {
+    it("can be listed", function (done) {
+        w3c.specificationsByStatus("Recommendation").fetch(listChecker(done, "Webmention"));
+    });
+});
+
 
 describe("Embeds", function () {
     it('apply to functions', function (done) {
