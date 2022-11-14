@@ -182,13 +182,13 @@ describe("Users", function () {
         w3c.user(ian).groups().fetch(listChecker(done, "Community Groups Development Lead"));
     });
     it("have participations", function (done) {
-        w3c.user(ian).participations().fetch(listChecker(done, "Web Payments Working Group"));
+        w3c.user(ian).participations().fetch(listChecker(done, "Web Payment Security Interest Group"));
     });
     it("have specifications", function (done) {
         w3c.user(ian).specifications().fetch(listChecker(done, "Accessibility Features of CSS"));
     });
     it("is team contact of", function (done) {
-        w3c.user(ian).teamcontactofgroups().fetch(listChecker(done, "Web Payments Working Group"));
+        w3c.user(ian).teamcontactofgroups().fetch(listChecker(done, "Web Payment Security Interest Group"));
     });
 });
 
