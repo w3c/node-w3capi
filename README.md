@@ -23,7 +23,6 @@ and then:
 
 ```js
 var w3capi = require('node-w3capi');
-w3capi.apiKey = 'deadb33f'; // Your API key.
 ```
 
 ### Client-side
@@ -32,20 +31,7 @@ Grab the AMD module ([`lib/w3capi.js`](https://w3c.github.io/node-w3capi/lib/w3c
 
 ```js
 requirejs(['w3capi'], function(w3capi) {
-    w3capi.apiKey = 'deadb33f'; // Your API key.
-    w3capi.authMode = 'param';
 });
-```
-
-## :warning: Important
-
-the API is only available if you have an API key.
-In order to obtain one, [you need to apply through your W3C account page](https://w3c.github.io/w3c-api/#apikeys).
-
-If you wish to run the tests, you need to set an environment variable named `W3CAPIKEY` to that value, as in
-
-```bash
-W3CAPIKEY=deadb33f npm test
 ```
 
 ## API
@@ -53,9 +39,6 @@ W3CAPIKEY=deadb33f npm test
 This documentation does not describe the fields that the various objects have; refer to the [W3C API's documentation](https://api.w3.org/doc) for that.
 
 Everything always starts in the same way:
-
-You *will* need an API key. Nothing will work without it. ***NOTE***: this library does not support
-keys that were created with a list of origins. You should generate a key with no list of domains.
 
 This gives you a client instance that's immediately ready to work. You then chain some methods to
 specify what you want to get, and fetch with a callback. For example:
