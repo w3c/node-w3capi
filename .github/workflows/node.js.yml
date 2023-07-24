@@ -30,5 +30,3 @@ jobs:
       - run: npm ci
 
       - run: npm test
-        env:
-          W3CAPIKEY: ${{ secrets.W3CAPIKEY }}
