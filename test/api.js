@@ -36,7 +36,7 @@ describe('Functions', function () {
         w3c.function(122803).fetch(itemChecker(done, 'name', 'Systems'));
     });
     it('have services', function (done) {
-        w3c.function(122803).services().fetch(listChecker(done, 'Issue Tracking'));
+        w3c.function(122803).services().fetch(listChecker(done, 'Mailing List'));
     });
     it('have users', function (done) {
         w3c.function(122803).users().fetch(listChecker(done, 'Laurent Carcone'));
@@ -110,10 +110,10 @@ describe("Groups", function () {
 
 describe("Services", function () {
     it("can be fetched", function (done) {
-        w3c.service(2).fetch(itemChecker(done, "type", "tracker"));
+        w3c.service(487).fetch(itemChecker(done, "type", "chat"));
     });
     it("have groups", function (done) {
-        w3c.service(2).groups().fetch(listChecker(done, "Systems"));
+        w3c.service(487).groups().fetch(listChecker(done, "Web Hypertext Application Technology Community Group"));
     });
 });
 
@@ -189,7 +189,7 @@ describe("Users", function () {
 describe('Affiliations', function () {
     const STAFF = 52794;
     it('can be listed', function (done) {
-        w3c.affiliations().fetch(listChecker(done, 'Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)'));
+        w3c.affiliations().fetch(listChecker(done, 'Bull S.A.'));
     });
     it('can be fetched', function (done) {
         w3c.affiliation(STAFF).fetch(itemChecker(done, 'name', 'W3C'));
