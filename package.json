@@ -20,7 +20,7 @@
   "devDependencies": {
     "browserify": "17.0.0",
     "expect.js": "0.3",
-    "mocha": "10.3.0"
+    "mocha": "10.4.0"
   },
   "scripts": {
     "build": "browserify lib/index.js -s w3capi -o lib/w3capi.js",
