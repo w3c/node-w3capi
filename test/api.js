@@ -173,7 +173,7 @@ describe("Users", function () {
         w3c.user(ian).affiliations().fetch(listChecker(done));
     });
     it("have groups", function (done) {
-        w3c.user(ian).groups().fetch(listChecker(done, "Community Groups Development Lead"));
+        w3c.user(ian).groups().fetch(listChecker(done, "Web Payment Security Interest Group"));
     });
     it("have participations", function (done) {
         w3c.user(ian).participations().fetch(listChecker(done, "Web Payment Security Interest Group"));
@@ -249,7 +249,7 @@ describe('Specifications by status', function () {
 
 describe("Embeds", function () {
     it('apply to functions', function (done) {
-        w3c.functions().fetch({ embed: true }, embedChecker(done, 'name', 'Management'));
+        w3c.functions().fetch({ embed: true }, embedChecker(done, 'name', 'Systems'));
     });
     it("apply to groups", function (done) {
         w3c.groups().fetch({ embed: true }, embedChecker(done, "type", "community group"));
