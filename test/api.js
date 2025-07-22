@@ -36,7 +36,7 @@ describe('Functions', function () {
         w3c.function(122803).fetch(itemChecker(done, 'name', 'Systems'));
     });
     it('have services', function (done) {
-        w3c.function(122803).services().fetch(listChecker(done, 'Mailing List'));
+        w3c.function(122803).services().fetch(listChecker(done, 'sysreq (Mailing List)'));
     });
     it('have users', function (done) {
         w3c.function(122803).users().fetch(listChecker(done, 'Laurent Carcone'));
@@ -64,10 +64,10 @@ describe("Groups", function () {
         w3c.group({type: "wg", shortname: "css"}).chairs().fetch(listChecker(done, "Rossen Atanassov"));
     });
     it("have services", function (done) {
-        w3c.group(32061).services().fetch(listChecker(done, "Wiki"));
+        w3c.group(32061).services().fetch(listChecker(done, "Blog (Blog)"));
     });
     it("have services with type/shortname", function (done) {
-        w3c.group({type: "wg", shortname: "css"}).services().fetch(listChecker(done, "Wiki"));
+        w3c.group({type: "wg", shortname: "css"}).services().fetch(listChecker(done, "Blog (Blog)"));
     });
     it("have specifications", function (done) {
         w3c.group(32061).specifications().fetch(listChecker(done, "Selectors Level 3"));
@@ -110,10 +110,10 @@ describe("Groups", function () {
 
 describe("Services", function () {
     it("can be fetched", function (done) {
-        w3c.service(487).fetch(itemChecker(done, "type", "chat"));
+        w3c.service(401).fetch(itemChecker(done, "type", "x"));
     });
     it("have groups", function (done) {
-        w3c.service(487).groups().fetch(listChecker(done, "Web Hypertext Application Technology Community Group"));
+        w3c.service(401).groups().fetch(listChecker(done, "ODRL Community Group"));
     });
 });
 
