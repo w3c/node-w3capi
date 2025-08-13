@@ -30,10 +30,10 @@ function itemChecker (done, field, value) {
 
 describe('Functions', function () {
     it('can be listed', function (done) {
-        w3c.functions().fetch(listChecker(done, 'Systems'));
+        w3c.functions().fetch(listChecker(done, 'IT/Systems Operations'));
     });
     it('can be fetched', function (done) {
-        w3c.function(122803).fetch(itemChecker(done, 'name', 'Systems'));
+        w3c.function(122803).fetch(itemChecker(done, 'name', 'IT/Systems Operations'));
     });
     it('have services', function (done) {
         w3c.function(122803).services().fetch(listChecker(done, 'sysreq (Mailing List)'));
@@ -249,7 +249,7 @@ describe('Specifications by status', function () {
 
 describe("Embeds", function () {
     it('apply to functions', function (done) {
-        w3c.functions().fetch({ embed: true }, embedChecker(done, 'name', 'Systems'));
+        w3c.functions().fetch({ embed: true }, embedChecker(done, 'name', 'IT/Systems Operations'));
     });
     it("apply to groups", function (done) {
         w3c.groups().fetch({ embed: true }, embedChecker(done, "type", "community group"));
