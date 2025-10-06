@@ -195,7 +195,7 @@ describe('Affiliations', function () {
         w3c.affiliation(STAFF).fetch(itemChecker(done, 'name', 'W3C'));
     });
     it('have participants', function (done) {
-        w3c.affiliation(STAFF).participants().fetch(listChecker(done, 'Kazuyuki Ashimura'));
+        w3c.affiliation(STAFF).participants().fetch(listChecker(done, 'Denis Ah-Kang'));
     });
     it('have participations', function (done) {
         w3c.affiliation(STAFF).participations().fetch(listChecker(done, 'Accessibility Guidelines Working Group'));
