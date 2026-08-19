@@ -1,4 +1,4 @@
-var expect = require("expect.js")
+const expect = require("expect.js")
 ,   w3c = require("..")
 ;
 
@@ -161,7 +161,7 @@ describe("Specifications Version", function () {
 
 
 describe("Users", function () {
-    var ian = "ggdj8tciu9kwwc4o4ww888ggkwok0c8";
+    const ian = "ggdj8tciu9kwwc4o4ww888ggkwok0c8";
     it("can be fetched", function (done) {
         w3c.user(ian).fetch(itemChecker(done, "given", "Ian"));
     });
