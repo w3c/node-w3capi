@@ -58,10 +58,10 @@ describe("Groups", function () {
         w3c.group({type: "wg", shortname: "css"}).fetch(itemChecker(done, "name", "Cascading Style Sheets (CSS) Working Group"));
     });
     it("have chairs", function (done) {
-        w3c.group(32061).chairs().fetch(listChecker(done, "Rossen Atanassov"));
+        w3c.group(32061).chairs().fetch(listChecker(done, "Alan Stearns"));
     });
     it("have chairs with type/shortname", function (done) {
-        w3c.group({type: "wg", shortname: "css"}).chairs().fetch(listChecker(done, "Rossen Atanassov"));
+        w3c.group({type: "wg", shortname: "css"}).chairs().fetch(listChecker(done, "Alan Stearns"));
     });
     it("have services", function (done) {
         w3c.group(32061).services().fetch(listChecker(done, "Blog (Blog)"));
